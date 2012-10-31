@@ -49,8 +49,8 @@ public final class MazeGen {
 		backtrack.push(temp);
 		startCell = temp;
 		
-		System.out.println(toString());
-		System.out.println("Start: " + temp.x + " " + temp.y);
+		//System.out.println(toString());
+		//System.out.println("Start: " + temp.x + " " + temp.y);
 
 		do {
 			// Reset switches
@@ -62,20 +62,20 @@ public final class MazeGen {
 			checked[3] = false;
 			
 			// Loop for one Cell
-			System.out.println("---------------------------------");
+			//System.out.println("---------------------------------");
 			while (!foundWay && !allChecked) {
 
 				// Get random neighbor
 				neighborLookDirection = rand.nextInt(4);
 				
-				System.out.println("Temp Cell is at: " + temp.x + " " + temp.y);
-				System.out.println("neighborLookDirection: " + neighborLookDirection);
+				//System.out.println("Temp Cell is at: " + temp.x + " " + temp.y);
+				//System.out.println("neighborLookDirection: " + neighborLookDirection);
 				
 				switch (neighborLookDirection) {
 				case 0: // S
 					if ((temp.y + 2) < yLength
 							&& !maze[temp.x][temp.y + 2].visited) {
-						System.out.println(neighborLookDirection + "=> Not visited: " + temp.x + " " + (temp.y + 2));
+						//System.out.println(neighborLookDirection + "=> Not visited: " + temp.x + " " + (temp.y + 2));
 						wayToTemp = maze[temp.x][temp.y + 1];
 						temp = maze[temp.x][temp.y + 2];
 						
@@ -90,7 +90,7 @@ public final class MazeGen {
 				case 1: // O
 					if ((temp.x + 2) < xLength
 							&& !maze[temp.x + 2][temp.y].visited) {
-						System.out.println(neighborLookDirection + "=> Not visited: " + (temp.x + 2) + " " + temp.y);
+						//System.out.println(neighborLookDirection + "=> Not visited: " + (temp.x + 2) + " " + temp.y);
 						wayToTemp = maze[temp.x + 1][temp.y];
 						temp = maze[temp.x + 2][temp.y];
 
@@ -104,7 +104,7 @@ public final class MazeGen {
 					break;
 				case 2: // N
 					if ((temp.y - 2) >= 0 && !maze[temp.x][temp.y - 2].visited) {
-						System.out.println(neighborLookDirection + "=> Not visited: " + temp.x + " " + (temp.y - 2));
+						//System.out.println(neighborLookDirection + "=> Not visited: " + temp.x + " " + (temp.y - 2));
 						wayToTemp = maze[temp.x][temp.y - 1];
 						temp = maze[temp.x][temp.y - 2];
 
@@ -118,7 +118,7 @@ public final class MazeGen {
 					break;
 				case 3: // W
 					if ((temp.x - 2) >= 0 && !maze[temp.x - 2][temp.y].visited) {
-						System.out.println(neighborLookDirection + "=> Not visited: " + (temp.x - 2) + " " + temp.y);
+						//System.out.println(neighborLookDirection + "=> Not visited: " + (temp.x - 2) + " " + temp.y);
 						wayToTemp = maze[temp.x - 1][temp.y];
 						temp = maze[temp.x - 2][temp.y];
 
@@ -132,11 +132,11 @@ public final class MazeGen {
 					break;
 				}
 
-				System.out.println(checked[0] + " " + checked[1] + " " + checked[2] + " " + checked[3]);
+				//System.out.println(checked[0] + " " + checked[1] + " " + checked[2] + " " + checked[3]);
 				
 				if (!foundWay) {
 					if (checked[0] && checked[1] && checked[2] && checked[3]) {
-						System.out.println("All checked: No way, go back.");
+						//System.out.println("All checked: No way, go back.");
 						allChecked = true;
 						temp = backtrack.pop();
 					}
